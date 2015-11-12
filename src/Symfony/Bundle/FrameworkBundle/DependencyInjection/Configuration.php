@@ -179,6 +179,7 @@ class Configuration implements ConfigurationInterface
         $this->addSerializerSection($rootNode);
         $this->addPropertyAccessSection($rootNode);
         $this->addPropertyInfoSection($rootNode);
+        $this->addRequestIdSection($rootNode);
 
         return $treeBuilder;
     }
@@ -735,5 +736,19 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end()
         ;
+    }
+
+    private function addRequestIdSection(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('request_id')
+                    ->addDefaultsIfNotSet()
+                    ->info('Request Id configuration')
+                    ->children()
+                        ->booleanNode('header')->defaultValue('X-Request-Id')->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }
