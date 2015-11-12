@@ -189,6 +189,9 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                 'base_urls' => array(),
                 'packages' => array(),
             ),
+            'request_id' => array(
+                'header' => 'X-Request-Id',
+            ),
         );
     }
 }
