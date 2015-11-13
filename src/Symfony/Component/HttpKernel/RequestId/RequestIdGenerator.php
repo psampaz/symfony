@@ -9,4 +9,3 @@ class RequestIdGenerator implements RequestIdGeneratorInterface
     }
 
 }
-
