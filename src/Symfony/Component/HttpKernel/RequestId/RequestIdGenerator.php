@@ -7,4 +7,6 @@ class RequestIdGenerator implements RequestIdGeneratorInterface
     {
         return hash('sha256', uniqid(mt_rand(), true));
     }
+
 }
+
