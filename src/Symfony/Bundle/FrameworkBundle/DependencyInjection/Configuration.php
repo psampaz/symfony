@@ -426,7 +426,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->info('request id configuration')
                     ->children()
-                        ->booleanNode('header')->defaultValue('X-Request-Id')->end()
+                        ->scalarNode('header')->defaultValue('X-Request-Id')->end()
                         ->scalarNode('generator_id')->defaultValue('request.add_request_id_generator')->end()
                     ->end()
                 ->end()
