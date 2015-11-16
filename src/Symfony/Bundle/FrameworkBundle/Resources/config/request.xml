@@ -6,12 +6,22 @@
 
     <parameters>
         <parameter key="request.add_request_formats_listener.class">Symfony\Component\HttpKernel\EventListener\AddRequestFormatsListener</parameter>
+        <parameter key="request.add_request_id_listener.class">Symfony\Component\HttpKernel\EventListener\AddRequestIdListener</parameter>
+        <parameter key="request.add_request_id_generator.class">Symfony\Component\HttpKernel\RequestId\RequestIdGenerator</parameter>
     </parameters>
 
     <services>
         <service id="request.add_request_formats_listener" class="%request.add_request_formats_listener.class%">
             <tag name="kernel.event_subscriber" />
             <argument/>
+        </service>
+        <service id="request.add_request_id_generator" class="%request.add_request_id_generator.class%">
+        </service>
+        <service id="request.add_request_id_listener" class="%request.add_request_id_listener.class%">
+            <argument type="service" id="request_stack" />
+            <argument type="service" id="%request_id.generator_id%" />
+            <argument>%request_id.header%</argument>
+            <tag name="kernel.event_subscriber" />
         </service>
     </services>
 </container>
