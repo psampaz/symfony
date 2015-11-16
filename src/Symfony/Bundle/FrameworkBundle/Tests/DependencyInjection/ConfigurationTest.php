@@ -191,7 +191,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
             ),
             'request_id' => array(
                 'header' => 'X-Request-Id',
-                'generator_id' => 'request.add_request_id_generator'
+                'generator_id' => 'request.add_request_id_generator',
             ),
         );
     }
